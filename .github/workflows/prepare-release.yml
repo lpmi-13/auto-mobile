@@ -28,7 +28,7 @@ jobs:
       base_main_commit: ${{ steps.commit.outputs.base_main_commit }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           lfs: false
           ref: main
@@ -36,7 +36,7 @@ jobs:
           token: ${{ secrets.AUTO_MOBILE_PR_TOKEN }}
 
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
         with:
           bun-version: 1.4.4
           no-cache: true
@@ -289,7 +289,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           lfs: false
           ref: ${{ needs.prepare-version.outputs.release_commit }}
@@ -391,7 +391,7 @@ jobs:
       actions: write
     steps:
       - name: Checkout finalized release
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           lfs: false
           ref: ${{ needs.finalize-release.outputs.release_commit }}
@@ -399,67 +399,67 @@ jobs:
           token: ${{ secrets.AUTO_MOBILE_PR_TOKEN }}
 
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
         with:
           bun-version: 1.4.4
           no-cache: true
 
       - name: "Download CtrlProxy APK"
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: control-proxy-apk
           path: /tmp
 
       - name: "Download CtrlProxy iOS IPA"
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: ctrl-proxy-ios-ipa
           path: /tmp
 
       - name: "Download video-server jar"
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: video-server-jar
           path: /tmp
 
       - name: "Download screen-capture-helper"
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: screen-capture-helper
           path: /tmp
 
       - name: "Download prototype-agent"
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: prototype-agent
           path: /tmp
 
       - name: "Download prototype-viewer"
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: prototype-viewer
           path: /tmp
 
       - name: "Download network-filter"
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: network-filter
           path: /tmp
 
       - name: "Download desktop macOS DMG"
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: automobile-desktop-macos
           path: /tmp/desktop
 
       - name: "Download desktop Windows MSI"
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: automobile-desktop-windows
           path: /tmp/desktop
 
       - name: "Download desktop Linux Deb"
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: automobile-desktop-linux
           path: /tmp/desktop
@@ -532,7 +532,7 @@ jobs:
             > /tmp/release-artifact-provenance.json
 
       - name: Upload release artifact provenance
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: release-artifact-provenance
           path: /tmp/release-artifact-provenance.json
@@ -590,7 +590,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           lfs: false
           fetch-depth: 1
